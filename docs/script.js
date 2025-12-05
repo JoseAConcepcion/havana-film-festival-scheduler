@@ -3035,7 +3035,7 @@ function updateConflictsInfo() {
         const dayOfWeek = screeningDate.getDay(); // 0 (Domingo) a 6 (Sábado)
         
         // Convertir a nuestro sistema: 0=Lunes, 6=Domingo
-        const dayIndex = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+        const dayIndex = dayOfWeek === 0 ? 6 : dayOfWeek;
         const dayName = getDayName(dayIndex);
         
         // Obtener la fecha formateada
