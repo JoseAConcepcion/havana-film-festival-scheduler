@@ -2263,7 +2263,7 @@ let screeningsDatabase = [
     { id: 407, movieId: 91, cinemaId: 9, date: "2025-12-10", hour: 15, minute: 0 }, // Cherri en Yara
     { id: 408, movieId: 174, cinemaId: 9, date: "2025-12-10", hour: 17, minute: 30 }, // The Son and the Sea en Yara
     { id: 409, movieId: 175, cinemaId: 9, date: "2025-12-10", hour: 20, minute: 0 }, // Sentimental Value en Yara
-    
+
     // --- JUEVES 11 DICIEMBRE 2025 ---
     { id: 410, movieId: 164, cinemaId: 1, date: "2025-12-11", hour: 10, minute: 0 }, // Punku en 23 y 12
     { id: 411, movieId: 163, cinemaId: 1, date: "2025-12-11", hour: 12, minute: 30 }, // La memoria de las mariposas en 23 y 12
@@ -2290,7 +2290,7 @@ let screeningsDatabase = [
     { id: 432, movieId: 156, cinemaId: 3, date: "2025-12-11", hour: 12, minute: 30 }, // Matapanki en Chaplin
     { id: 433, movieId: 32, cinemaId: 3, date: "2025-12-11", hour: 15, minute: 0 }, // Leyendo el mundo en Chaplin
     { id: 434, movieId: 186, cinemaId: 3, date: "2025-12-11", hour: 17, minute: 30 }, // 5 historias de amor y un bolerón desesperado en Chaplin
-    
+
     // --- VIERNES 12 DICIEMBRE 2025 ---
     { id: 435, movieId: 121, cinemaId: 1, date: "2025-12-12", hour: 10, minute: 0 }, // Yendo en 23 y 12
     { id: 436, movieId: 176, cinemaId: 1, date: "2025-12-12", hour: 12, minute: 30 }, // ¡Para Vigo me voy! en 23 y 12
@@ -2330,7 +2330,7 @@ let screeningsDatabase = [
     { id: 470, movieId: 209, cinemaId: 9, date: "2025-12-12", hour: 17, minute: 30 }, // Hen en Yara
     { id: 471, movieId: 210, cinemaId: 9, date: "2025-12-12", hour: 20, minute: 0 }, // Case 137 en Yara
     { id: 489, movieId: 66, cinemaId: 7, date: "2025-12-12", hour: 15, minute: 0 }, // Identidad en Infanta
-    
+
     // --- SÁBADO 13 DICIEMBRE 2025 ---
     { id: 472, movieId: 73, cinemaId: 1, date: "2025-12-13", hour: 17, minute: 30 }, // Memoria de "Los olvidados" en 23 y 12
     { id: 473, movieId: 72, cinemaId: 5, date: "2025-12-13", hour: 15, minute: 0 }, // Oca en Infanta
@@ -2341,7 +2341,7 @@ let screeningsDatabase = [
     { id: 478, movieId: 36, cinemaId: 7, date: "2025-12-13", hour: 17, minute: 30 }, // Dolores en Riviera
     { id: 479, movieId: 211, cinemaId: 9, date: "2025-12-13", hour: 17, minute: 30 }, // Romería en Yara
     { id: 480, movieId: 212, cinemaId: 9, date: "2025-12-13", hour: 20, minute: 0 }, // Heads or Tails? en Yara
-    
+
     // --- DOMINGO 14 DICIEMBRE 2025 ---
     { id: 481, movieId: 195, cinemaId: 1, date: "2025-12-14", hour: 17, minute: 30 }, // Los olvidados en 23 y 12
     { id: 482, movieId: 196, cinemaId: 5, date: "2025-12-14", hour: 15, minute: 0 }, // Perros en Infanta
@@ -2365,7 +2365,7 @@ const state = {
 };
 
 // Inicialización de la aplicación
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     filterScreeningsByTimeRange();
     initApp();
 });
@@ -2373,17 +2373,17 @@ document.addEventListener('DOMContentLoaded', function() {
 function initApp() {
     // Configurar la semana actual
     setCurrentWeek();
-    
+
     // Inicializar elementos de la UI
     populateCinemaFilter();
     populateDayFilter();
     renderMoviesList();
     renderWeekView();
     renderSelectedMovies();
-    
+
     // Configurar eventos
     setupEventListeners();
-    
+
     // Detectar conflictos iniciales
     detectConflicts();
 }
@@ -2391,10 +2391,10 @@ function initApp() {
 function deselectAllMovies() {
     // Vaciar el Set de películas seleccionadas
     state.selectedMovies.clear();
-    
+
     // Al desmarcar todas, también mostramos todas las proyecciones (opcional, pero recomendado)
     state.hiddenScreenings.clear();
-    
+
     // Actualizar toda la interfaz
     renderMoviesList();
     renderWeekView();
@@ -2457,46 +2457,46 @@ function selectAllVisibleMovies() {
 // Configurar eventos
 function setupEventListeners() {
     // Búsqueda
-    document.getElementById('searchInput').addEventListener('input', function(e) {
+    document.getElementById('searchInput').addEventListener('input', function (e) {
         state.searchTerm = e.target.value.toLowerCase();
         renderMoviesList();
     });
-    
-    document.getElementById('searchBtn').addEventListener('click', function() {
+
+    document.getElementById('searchBtn').addEventListener('click', function () {
         state.searchTerm = document.getElementById('searchInput').value.toLowerCase();
         renderMoviesList();
     });
-    
+
     // Filtros
-    document.getElementById('cineFilter').addEventListener('change', function(e) {
+    document.getElementById('cineFilter').addEventListener('change', function (e) {
         state.selectedCinema = e.target.value;
         renderMoviesList();
         renderWeekView();
     });
-    
-    document.getElementById('dayFilter').addEventListener('change', function(e) {
+
+    document.getElementById('dayFilter').addEventListener('change', function (e) {
         state.selectedDay = e.target.value;
         renderMoviesList();
         renderWeekView();
     });
-    
+
     // Navegación de semana
-    document.getElementById('prevWeek').addEventListener('click', function() {
+    document.getElementById('prevWeek').addEventListener('click', function () {
         changeWeek(-7);
     });
-    
-    document.getElementById('nextWeek').addEventListener('click', function() {
+
+    document.getElementById('nextWeek').addEventListener('click', function () {
         changeWeek(7);
     });
-    
+
     // Modal
     document.querySelector('.close-modal').addEventListener('click', closeModal);
-    document.getElementById('movieModal').addEventListener('click', function(e) {
+    document.getElementById('movieModal').addEventListener('click', function (e) {
         if (e.target === this) closeModal();
     });
-    
+
     // Permitir cerrar modal con tecla ESC
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeModal();
     });
 
@@ -2532,13 +2532,13 @@ function isValidScreeningTime(hour, minute) {
     const totalMinutes = hour * 60 + minute;
     const startLimit = 10 * 60; // 10:00
     const endLimit = 21 * 60; // 21:00
-    
+
     return totalMinutes >= startLimit && totalMinutes <= endLimit;
 }
 
 // Función para filtrar proyecciones fuera del rango horario
 function filterScreeningsByTimeRange() {
-    screeningsDatabase = screeningsDatabase.filter(screening => 
+    screeningsDatabase = screeningsDatabase.filter(screening =>
         isValidScreeningTime(screening.hour, screening.minute)
     );
 }
@@ -2556,25 +2556,25 @@ function changeWeek(days) {
 function updateDayFilterOptions() {
     const dayFilter = document.getElementById('dayFilter');
     const currentValue = dayFilter.value;
-    
+
     const wasAll = currentValue === "all";
-    
+
     dayFilter.innerHTML = '<option value="all">Todos los días</option>';
-    
+
     for (let i = 0; i < 7; i++) {
         const dayDate = new Date(state.currentWeekStart);
         dayDate.setDate(dayDate.getDate() + i);
-        
+
         const dayName = getDayName(i);
         const dayNumber = dayDate.getDate();
         const month = dayDate.toLocaleDateString('es-ES', { month: 'short' });
-        
+
         const option = document.createElement('option');
         option.value = i;
         option.textContent = `${dayName} ${dayNumber} ${month}`;
         dayFilter.appendChild(option);
     }
-    
+
     if (wasAll) {
         dayFilter.value = "all";
     } else if (currentValue >= 0 && currentValue <= 6) {
@@ -2584,7 +2584,7 @@ function updateDayFilterOptions() {
 
 function groupScreeningsByDateTime(screenings) {
     const groups = {};
-    
+
     screenings.forEach(screening => {
         const key = `${screening.date}-${screening.hour}-${screening.minute}`;
         if (!groups[key]) {
@@ -2592,18 +2592,18 @@ function groupScreeningsByDateTime(screenings) {
         }
         groups[key].push(screening);
     });
-    
+
     return groups;
 }
 
 function areDurationsSimilar(screenings) {
     if (screenings.length < 2) return true;
-    
+
     const movies = screenings.map(s => getMovieById(s.movieId));
     const durations = movies.map(m => m.duration);
     const avgDuration = durations.reduce((a, b) => a + b, 0) / durations.length;
-    
-    return durations.every(duration => 
+
+    return durations.every(duration =>
         Math.abs(duration - avgDuration) / avgDuration <= 0.2
     );
 }
@@ -2628,15 +2628,15 @@ function minutesToTime(minutes) {
 function doScreeningsOverlap(screeningA, screeningB) {
     const movieA = getMovieById(screeningA.movieId);
     const movieB = getMovieById(screeningB.movieId);
-    
+
     if (screeningA.day !== screeningB.day) return false;
-    
+
     const startA = timeToMinutes(screeningA.hour, screeningA.minute);
     const endA = startA + movieA.duration;
-    
+
     const startB = timeToMinutes(screeningB.hour, screeningB.minute);
     const endB = startB + movieB.duration;
-    
+
     return (
         (startB >= startA && startB < endA) ||
         (startA >= startB && startA < endB) ||
@@ -2646,7 +2646,7 @@ function doScreeningsOverlap(screeningA, screeningB) {
 
 function populateCinemaFilter() {
     const cineFilter = document.getElementById('cineFilter');
-    
+
     cinemasDatabase.forEach(cinema => {
         const option = document.createElement('option');
         option.value = cinema.id;
@@ -2658,15 +2658,15 @@ function populateCinemaFilter() {
 function populateDayFilter() {
     const dayFilter = document.getElementById('dayFilter');
     dayFilter.innerHTML = '<option value="all">Todos los días</option>';
-    
+
     for (let i = 0; i < 7; i++) {
         const dayDate = new Date(state.currentWeekStart);
         dayDate.setDate(dayDate.getDate() + i);
-        
+
         const dayName = getDayName(i);
         const dayNumber = dayDate.getDate();
         const month = dayDate.toLocaleDateString('es-ES', { month: 'short' });
-        
+
         const option = document.createElement('option');
         option.value = i;
         option.textContent = `${dayName} ${dayNumber} ${month}`;
@@ -2677,53 +2677,53 @@ function populateDayFilter() {
 function renderMoviesList() {
     const moviesList = document.getElementById('moviesList');
     moviesList.innerHTML = '';
-    
+
     let filteredScreenings = screeningsDatabase.filter(screening => {
         const movie = getMovieById(screening.movieId);
         const cinema = getCinemaById(screening.cinemaId);
-        
+
         if (state.searchTerm) {
             const searchLower = state.searchTerm.toLowerCase();
-            if (!movie.title.toLowerCase().includes(searchLower) && 
+            if (!movie.title.toLowerCase().includes(searchLower) &&
                 !movie.genre.toLowerCase().includes(searchLower) &&
                 !cinema.name.toLowerCase().includes(searchLower)) {
                 return false;
             }
         }
-        
+
         if (state.selectedCinema !== "all" && parseInt(state.selectedCinema) !== screening.cinemaId) {
             return false;
         }
-        
-        
-       if (state.selectedDay !== "all") {
+
+
+        if (state.selectedDay !== "all") {
             const selectedDayIndex = parseInt(state.selectedDay);
             const screeningDate = new Date(screening.date);
             const weekStart = new Date(state.currentWeekStart);
             const weekEnd = new Date(weekStart);
             weekEnd.setDate(weekEnd.getDate() + 6);
-            
+
             // Verificar si la proyección está en la semana actual
             if (screeningDate < weekStart || screeningDate > weekEnd) {
                 return false;
             }
-            
+
             // Calcular el día de la semana (0-6, donde 0 es lunes)
             const dayDiff = Math.floor((screeningDate - weekStart) / (1000 * 60 * 60 * 24));
-            
+
             if (dayDiff !== selectedDayIndex) {
                 return false;
             }
         }
         return true;
     });
-    
+
     const movieMap = new Map();
-    
+
     filteredScreenings.forEach(screening => {
         const movie = getMovieById(screening.movieId);
         const cinema = getCinemaById(screening.cinemaId);
-        
+
         if (!movieMap.has(movie.id)) {
             movieMap.set(movie.id, {
                 movie: movie,
@@ -2731,14 +2731,14 @@ function renderMoviesList() {
                 isSelected: state.selectedMovies.has(movie.id)
             });
         }
-        
+
         movieMap.get(movie.id).screenings.push({
             screening: screening,
             cinema: cinema,
             date: new Date(screening.date)
         });
     });
-    
+
     if (movieMap.size === 0) {
         const noResults = document.createElement('div');
         noResults.className = 'no-results';
@@ -2746,10 +2746,10 @@ function renderMoviesList() {
         moviesList.appendChild(noResults);
         return;
     }
-    
+
     const selectedMovies = [];
     const unselectedMovies = [];
-    
+
     movieMap.forEach((data, movieId) => {
         if (state.selectedMovies.has(movieId)) {
             selectedMovies.push([movieId, data]);
@@ -2757,39 +2757,57 @@ function renderMoviesList() {
             unselectedMovies.push([movieId, data]);
         }
     });
-    
+
     selectedMovies.sort((a, b) => a[1].movie.title.localeCompare(b[1].movie.title));
     unselectedMovies.sort((a, b) => a[1].movie.title.localeCompare(b[1].movie.title));
-    
+
     const sortedMovies = [...selectedMovies, ...unselectedMovies];
-    
+
     sortedMovies.forEach(([movieId, data]) => {
         const movie = data.movie;
         const screenings = data.screenings;
-        
+
         const movieItem = document.createElement('div');
         movieItem.className = 'movie-item';
         if (state.selectedMovies.has(movieId)) {
             movieItem.classList.add('selected');
         }
-        
+
         const movieInfo = document.createElement('div');
         movieInfo.className = 'movie-info';
-        
+
         const movieTitle = document.createElement('h4');
         movieTitle.textContent = movie.title;
-        
+
         const uniqueDates = [...new Set(screenings.map(s => s.screening.date))];
-        const dateStrings = uniqueDates.map(dateStr => {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+
+        // Agrupar proyecciones por fecha y recolectar horas únicas
+        const screeningsByDate = {};
+        screenings.forEach(s => {
+            const dateStr = s.screening.date;
+            const timeStr = `${s.screening.hour.toString().padStart(2, '0')}:${s.screening.minute.toString().padStart(2, '0')}`;
+            if (!screeningsByDate[dateStr]) {
+                screeningsByDate[dateStr] = new Set();
+            }
+            screeningsByDate[dateStr].add(timeStr);
         });
-        
+
+        // Convertir a formato legible: "12 jun – 15:00, 20:00"
+        const dateTimes = Object.entries(screeningsByDate).map(([dateStr, timesSet]) => {
+            const date = new Date(dateStr);
+            const datePart = date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+            const timePart = [...timesSet].sort().join(', ');
+            return `${datePart} – ${timePart}`;
+        });
+
+        // Limitar a 3 entradas para no abarrotar
+        const displayText = dateTimes.slice(0, 3).join(' | ') + (dateTimes.length > 3 ? '...' : '');
+
         const cinemaNames = [...new Set(screenings.map(s => s.cinema.name))].join(', ');
-        
+
         const movieDetails = document.createElement('p');
         movieDetails.textContent = `${movie.genre} • ${movie.duration} min • ${cinemaNames}`;
-        
+
         // Mostrar contador de proyecciones ocultas
         const hiddenCount = screenings.filter(s => state.hiddenScreenings.has(s.screening.id)).length;
         if (hiddenCount > 0 && state.selectedMovies.has(movieId)) {
@@ -2799,44 +2817,43 @@ function renderMoviesList() {
             hiddenInfo.style.color = '#e74c3c';
             hiddenInfo.style.marginTop = '3px';
             hiddenInfo.innerHTML = `<i class="fas fa-eye-slash"></i> ${hiddenCount} proyección(es) oculta(s)`;
-            hiddenInfo.addEventListener('click', function(e) {
+            hiddenInfo.addEventListener('click', function (e) {
                 e.stopPropagation();
                 showAllScreeningsForMovie(movieId);
             });
             movieInfo.appendChild(hiddenInfo);
         }
-        
-        if (dateStrings.length > 0) {
+
+        if (dateTimes.length > 0) {
             const datesInfo = document.createElement('p');
             datesInfo.className = 'movie-dates';
             datesInfo.style.fontSize = '0.85rem';
             datesInfo.style.color = '#7f8c8d';
             datesInfo.style.marginTop = '3px';
-            datesInfo.innerHTML = `<i class="far fa-calendar"></i> ${dateStrings.slice(0, 3).join(', ')}${dateStrings.length > 3 ? '...' : ''}`;
+            datesInfo.innerHTML = `<i class="far fa-calendar"></i> ${displayText}`;
             movieInfo.appendChild(datesInfo);
         }
-        
         movieInfo.appendChild(movieTitle);
         movieInfo.appendChild(movieDetails);
-        
+
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'movie-checkbox';
         checkbox.checked = state.selectedMovies.has(movieId);
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', function () {
             toggleMovieSelection(movieId, this.checked);
         });
-        
+
         movieItem.appendChild(movieInfo);
         movieItem.appendChild(checkbox);
-        
-        movieItem.addEventListener('click', function(e) {
+
+        movieItem.addEventListener('click', function (e) {
             if (e.target !== checkbox) {
                 checkbox.checked = !checkbox.checked;
                 toggleMovieSelection(movieId, checkbox.checked);
             }
         });
-        
+
         moviesList.appendChild(movieItem);
     });
 }
@@ -2853,7 +2870,7 @@ function toggleMovieSelection(movieId, isSelected) {
             }
         });
     }
-    
+
     renderMoviesList();
     renderWeekView();
     renderSelectedMovies();
@@ -2863,42 +2880,42 @@ function toggleMovieSelection(movieId, isSelected) {
 function renderSelectedMovies() {
     const selectedMoviesList = document.getElementById('selectedMoviesList');
     const selectedCount = document.getElementById('selectedCount');
-    
+
     selectedMoviesList.innerHTML = '';
     selectedCount.textContent = state.selectedMovies.size;
-    
+
     state.selectedMovies.forEach(movieId => {
         const movie = getMovieById(movieId);
-        
+
         const tag = document.createElement('div');
         tag.className = 'selected-movie-tag';
-        
+
         const movieName = document.createElement('span');
         movieName.textContent = movie.title;
-        
+
         const actionsContainer = document.createElement('div');
         actionsContainer.className = 'selected-movie-actions';
-        
+
         // Botón para mostrar todas las proyecciones
         const showAllBtn = document.createElement('button');
         showAllBtn.className = 'btn-show-all';
         showAllBtn.innerHTML = '<i class="fas fa-eye"></i>';
         showAllBtn.title = 'Mostrar todas las proyecciones';
-        showAllBtn.addEventListener('click', function(e) {
+        showAllBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             showAllScreeningsForMovie(movieId);
         });
-        
+
         const removeIcon = document.createElement('i');
         removeIcon.className = 'fas fa-times';
-        removeIcon.addEventListener('click', function(e) {
+        removeIcon.addEventListener('click', function (e) {
             e.stopPropagation();
             toggleMovieSelection(movieId, false);
         });
-        
+
         actionsContainer.appendChild(showAllBtn);
         actionsContainer.appendChild(removeIcon);
-        
+
         tag.appendChild(movieName);
         tag.appendChild(actionsContainer);
         selectedMoviesList.appendChild(tag);
@@ -2912,7 +2929,7 @@ function setCurrentWeek() {
     state.currentWeekStart = new Date(today);
     state.currentWeekStart.setDate(today.getDate() - diff);
     state.currentWeekStart.setHours(0, 0, 0, 0);
-    
+
     updateWeekDisplay();
 }
 
@@ -2920,7 +2937,7 @@ function updateWeekDisplay() {
     const weekStart = new Date(state.currentWeekStart);
     const weekEnd = new Date(weekStart);
     weekEnd.setDate(weekEnd.getDate() + 6);
-    
+
     const options = { month: 'short', day: 'numeric' };
     const weekRange = document.getElementById('currentWeekRange');
     weekRange.textContent = `${weekStart.toLocaleDateString('es-ES', options)} - ${weekEnd.toLocaleDateString('es-ES', options)}`;
@@ -2930,44 +2947,44 @@ function updateWeekDisplay() {
 function renderWeekView() {
     const weekView = document.querySelector('.week-view');
     const scheduleGrid = document.querySelector('.schedule-grid');
-    
+
     // Limpiar contenedores
     weekView.innerHTML = '';
     scheduleGrid.innerHTML = '';
-    
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
+
     // Crear encabezados de días (con una celda vacía al inicio para alinear con la columna de tiempo)
     const emptyHeader = document.createElement('div');
     emptyHeader.className = 'day-header empty-header';
     emptyHeader.innerHTML = '<div>&nbsp;</div><div>&nbsp;</div>';
     weekView.appendChild(emptyHeader);
-    
+
     for (let i = 0; i < 7; i++) {
         const dayDate = new Date(state.currentWeekStart);
         dayDate.setDate(dayDate.getDate() + i);
-        
+
         const dayHeader = document.createElement('div');
         dayHeader.className = 'day-header';
-        
+
         if (dayDate.toDateString() === today.toDateString()) {
             dayHeader.classList.add('today');
         }
-        
+
         const dayName = getDayName(i);
         const dayNumber = dayDate.getDate();
         const month = dayDate.toLocaleDateString('es-ES', { month: 'short' });
         const year = dayDate.getFullYear();
-        
+
         dayHeader.innerHTML = `
             <div>${dayName}</div>
             <div>${dayNumber} ${month} ${year}</div>
         `;
-        
+
         weekView.appendChild(dayHeader);
     }
-    
+
     // Definir franjas horarias
     const timeSlots = [
         { hour: 10, minute: 0, label: "10:00 AM" },
@@ -2977,52 +2994,52 @@ function renderWeekView() {
         { hour: 17, minute: 30, label: "5:30 PM" },
         { hour: 20, minute: 0, label: "8:00 PM" }
     ];
-    
+
     // Crear filas para cada franja horaria
     timeSlots.forEach(timeSlot => {
         const timeRow = document.createElement('div');
         timeRow.className = 'time-slot';
-        
+
         // Etiqueta de tiempo (primera columna)
         const timeLabel = document.createElement('div');
         timeLabel.className = 'time-label';
         timeLabel.textContent = timeSlot.label;
         timeRow.appendChild(timeLabel);
-        
+
         // Celdas para cada día (7 columnas)
         for (let dayIndex = 0; dayIndex < 7; dayIndex++) {
             const dayDate = new Date(state.currentWeekStart);
             dayDate.setDate(dayDate.getDate() + dayIndex);
             const dateString = formatDate(dayDate);
-            
+
             const dayCell = document.createElement('div');
             dayCell.className = 'day-cell';
             dayCell.dataset.day = dayIndex;
             dayCell.dataset.date = dateString;
             dayCell.dataset.hour = timeSlot.hour;
             dayCell.dataset.minute = timeSlot.minute;
-            
+
             // Filtrar proyecciones para esta celda
             let screeningsForSlot = screeningsDatabase.filter(screening => {
                 if (!state.selectedMovies.has(screening.movieId)) return false;
                 if (state.selectedCinema !== "all" && parseInt(state.selectedCinema) !== screening.cinemaId) return false;
-                return screening.date === dateString && 
-                       screening.hour === timeSlot.hour && 
-                       screening.minute === timeSlot.minute;
+                return screening.date === dateString &&
+                    screening.hour === timeSlot.hour &&
+                    screening.minute === timeSlot.minute;
             });
-            
+
             // Filtrar proyecciones ocultas
-            screeningsForSlot = screeningsForSlot.filter(screening => 
+            screeningsForSlot = screeningsForSlot.filter(screening =>
                 !state.hiddenScreenings.has(screening.id)
             );
-            
+
             if (screeningsForSlot.length > 0) {
                 const totalScreenings = screeningsForSlot.length;
-                
+
                 screeningsForSlot.forEach((screening, index) => {
                     const movie = getMovieById(screening.movieId);
                     const cinema = getCinemaById(screening.cinemaId);
-                    
+
                     // Calcular altura según duración
                     let height = 60;
                     if (movie.duration > 60) {
@@ -3030,52 +3047,52 @@ function renderWeekView() {
                         height += extraHours * 30;
                     }
                     height = Math.max(60, Math.min(120, height));
-                    
+
                     const movieEvent = document.createElement('div');
                     movieEvent.className = 'movie-event';
                     movieEvent.classList.add('selected');
-                    
-                    const hasConflict = state.conflicts.some(conflict => 
+
+                    const hasConflict = state.conflicts.some(conflict =>
                         conflict.some(s => s.id === screening.id)
                     );
                     if (hasConflict) {
                         movieEvent.classList.add('conflict');
                     }
-                    
+
                     if (totalScreenings > 1) {
                         movieEvent.classList.add('vertical-bar');
                         movieEvent.style.width = `${100 / totalScreenings}%`;
                         movieEvent.style.left = `${(100 / totalScreenings) * index}%`;
                     }
-                    
+
                     movieEvent.style.backgroundColor = movie.color;
                     movieEvent.style.height = `${height}px`;
-                    
+
                     // Botón para ocultar
                     const hideBtn = document.createElement('button');
                     hideBtn.className = 'hide-screening-btn';
                     hideBtn.innerHTML = '<i class="fas fa-times"></i>';
                     hideBtn.title = 'Ocultar esta proyección';
-                    hideBtn.addEventListener('click', function(e) {
+                    hideBtn.addEventListener('click', function (e) {
                         e.stopPropagation();
                         toggleScreeningVisibility(screening.id);
                     });
-                    
+
                     movieEvent.innerHTML = `
                         <div class="movie-event-title">${movie.title}</div>
                         <div class="movie-event-cinema">${cinema.name}</div>
                     `;
                     movieEvent.appendChild(hideBtn);
-                    
-                    movieEvent.addEventListener('click', function(e) {
+
+                    movieEvent.addEventListener('click', function (e) {
                         if (e.target !== hideBtn && !hideBtn.contains(e.target)) {
                             showMovieDetails(movie, cinema, screening, dayDate);
                         }
                     });
-                    
+
                     dayCell.appendChild(movieEvent);
                 });
-                
+
                 // Indicador de múltiples películas
                 if (totalScreenings > 1) {
                     const indicator = document.createElement('div');
@@ -3087,10 +3104,10 @@ function renderWeekView() {
             } else {
                 dayCell.innerHTML = '<div class="no-screening">---</div>';
             }
-            
+
             timeRow.appendChild(dayCell);
         }
-        
+
         scheduleGrid.appendChild(timeRow);
     });
 }
@@ -3104,22 +3121,22 @@ function showMovieDetails(movie, cinema, screening, dateObj) {
     const modalGenre = document.getElementById('modalGenre');
     const modalRating = document.getElementById('modalRating');
     const modalDescription = document.getElementById('modalDescription');
-    
+
     const screeningDate = new Date(screening.date);
     const dayName = screeningDate.toLocaleDateString('es-ES', { weekday: 'long' });
     const dateStr = screeningDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
-    
+
     const timeStr = `${screening.hour.toString().padStart(2, '0')}:${screening.minute.toString().padStart(2, '0')}`;
-    
+
     const endTime = new Date(screeningDate);
     endTime.setHours(screening.hour, screening.minute + movie.duration);
     const endTimeStr = `${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}`;
-    
+
     let timeNote = '';
     if (endTime.getHours() > 21 || (endTime.getHours() === 21 && endTime.getMinutes() > 0)) {
         timeNote = '\n<i class="fas fa-exclamation-circle"></i> Esta proyección termina después del horario de visualización (21:00).';
     }
-    
+
     modalTitle.textContent = movie.title;
     modalCinema.textContent = `${cinema.name} (${cinema.location})`;
     modalTime.innerHTML = `${dayName}, ${dateStr}<br>De ${timeStr} a ${endTimeStr}${timeNote}`;
@@ -3127,7 +3144,7 @@ function showMovieDetails(movie, cinema, screening, dateObj) {
     modalGenre.textContent = movie.genre;
     modalRating.textContent = movie.rating;
     modalDescription.textContent = movie.description;
-    
+
     modal.style.display = 'flex';
 }
 
@@ -3138,25 +3155,25 @@ function closeModal() {
 
 function detectConflicts() {
     state.conflicts = [];
-    
+
     // Solo verificar conflictos si hay películas seleccionadas
     if (state.selectedMovies.size < 2) {
         updateConflictsInfo();
         return;
     }
-    
+
     // Agrupar proyecciones por fecha
     const screeningsByDate = {};
-    
+
     // Obtener todas las proyecciones de películas marcadas
     screeningsDatabase.forEach(screening => {
         if (!state.selectedMovies.has(screening.movieId)) return;
         if (state.hiddenScreenings.has(screening.id)) return; // Ignorar proyecciones ocultas
-        
+
         if (!screeningsByDate[screening.date]) {
             screeningsByDate[screening.date] = [];
         }
-        
+
         const movie = getMovieById(screening.movieId);
         screeningsByDate[screening.date].push({
             ...screening,
@@ -3166,30 +3183,30 @@ function detectConflicts() {
             endMinutes: (screening.hour * 60 + screening.minute) + movie.duration
         });
     });
-    
+
     // Para cada fecha, detectar solapamientos
     Object.values(screeningsByDate).forEach(dateScreenings => {
         // Ordenar por hora de inicio
         dateScreenings.sort((a, b) => a.startMinutes - b.startMinutes);
-        
+
         // Comparar cada proyección con las demás
         for (let i = 0; i < dateScreenings.length; i++) {
             for (let j = i + 1; j < dateScreenings.length; j++) {
                 const screeningA = dateScreenings[i];
                 const screeningB = dateScreenings[j];
-                
+
                 // Verificar si hay solapamiento
                 const hasOverlap = (
                     // B empieza durante A
-                    (screeningB.startMinutes >= screeningA.startMinutes && 
-                     screeningB.startMinutes < screeningA.endMinutes) ||
+                    (screeningB.startMinutes >= screeningA.startMinutes &&
+                        screeningB.startMinutes < screeningA.endMinutes) ||
                     // A empieza durante B  
                     (screeningA.startMinutes >= screeningB.startMinutes &&
-                     screeningA.startMinutes < screeningB.endMinutes) ||
+                        screeningA.startMinutes < screeningB.endMinutes) ||
                     // Misma hora exacta
                     (screeningA.startMinutes === screeningB.startMinutes)
                 );
-                
+
                 // Si hay solapamiento y son en cines diferentes -> CONFLICTO
                 if (hasOverlap && screeningA.cinemaId !== screeningB.cinemaId) {
                     // Verificar si ya existe un conflicto con alguna de estas proyecciones
@@ -3200,7 +3217,7 @@ function detectConflicts() {
                             break;
                         }
                     }
-                    
+
                     if (existingConflict) {
                         // Añadir la proyección que no esté ya en el conflicto
                         if (!existingConflict.some(s => s.id === screeningA.id)) {
@@ -3217,7 +3234,7 @@ function detectConflicts() {
             }
         }
     });
-    
+
     // Actualizar UI con información de conflictos
     updateConflictsInfo();
     renderWeekView();
@@ -3225,7 +3242,7 @@ function detectConflicts() {
 
 function updateConflictsInfo() {
     const conflictsInfo = document.getElementById('conflictsInfo');
-    
+
     if (state.conflicts.length === 0) {
         if (state.selectedMovies.size === 0) {
             conflictsInfo.innerHTML = '<p><i class="fas fa-info-circle"></i> Marca películas para ver sus horarios y detectar conflictos.</p>';
@@ -3236,45 +3253,45 @@ function updateConflictsInfo() {
         }
         return;
     }
-    
+
     let html = `<h4><i class="fas fa-exclamation-triangle"></i> Se detectaron ${state.conflicts.length} conflicto(s) de horario:</h4>`;
-    
+
     state.conflicts.forEach((conflict, index) => {
         // Tomar la primera proyección como referencia (mismo día)
         const firstScreening = conflict[0];
-        
+
         // Obtener el día de la semana a partir de la fecha
         const screeningDate = new Date(firstScreening.date);
         const dayOfWeek = screeningDate.getDay(); // 0 (Domingo) a 6 (Sábado)
-        
+
         // Convertir a nuestro sistema: 0=Lunes, 6=Domingo
         const dayIndex = dayOfWeek === 0 ? 6 : dayOfWeek;
         const dayName = getDayName(dayIndex);
-        
+
         // Obtener la fecha formateada
         const dateStr = screeningDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 
         html += `<div class="conflict-item">
                     <strong>Conflicto ${index + 1}:</strong> ${dayName} ${dateStr} - Horarios que se solapan<br>
                     <small>`;
-        
+
         conflict.forEach(screening => {
             const movie = getMovieById(screening.movieId);
             const cinema = getCinemaById(screening.cinemaId);
             const startTime = `${screening.hour.toString().padStart(2, '0')}:${screening.minute.toString().padStart(2, '0')}`;
-            
+
             // Calcular hora de fin
             const endHour = Math.floor((screening.hour * 60 + screening.minute + movie.duration) / 60);
             const endMinute = (screening.hour * 60 + screening.minute + movie.duration) % 60;
             const endTime = `${endHour.toString().padStart(2, '0')}:${endMinute.toString().padStart(2, '0')}`;
-            
+
             html += `<i class="fas fa-film"></i> ${movie.title} (${cinema.name})<br>
                      &nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-clock"></i> ${startTime} - ${endTime} (${movie.duration} min)<br>`;
         });
-        
+
         html += `</small></div>`;
     });
-    
+
     conflictsInfo.innerHTML = html;
 }
 
