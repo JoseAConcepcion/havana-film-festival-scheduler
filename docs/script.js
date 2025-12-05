@@ -2207,7 +2207,150 @@ let screeningsDatabase = [
     { id: 353, movieId: 52, cinemaId: 9, date: "2025-12-09", hour: 12, minute: 30 }, // Revoada - Versión Steampunk en Yara
     { id: 354, movieId: 53, cinemaId: 9, date: "2025-12-09", hour: 15, minute: 0 }, // Sendero azul en Yara
     { id: 355, movieId: 54, cinemaId: 9, date: "2025-12-09", hour: 17, minute: 30 }, // El agente secreto en Yara
-    { id: 356, movieId: 55, cinemaId: 9, date: "2025-12-09", hour: 20, minute: 0 } // Sound of Falling en Yara
+    { id: 356, movieId: 55, cinemaId: 9, date: "2025-12-09", hour: 20, minute: 0 }, // Sound of Falling en Yara
+
+    // --- MIÉRCOLES 10 DICIEMBRE 2025 ---
+    { id: 357, movieId: 26, cinemaId: 1, date: "2025-12-10", hour: 10, minute: 0 }, // ¿Cómo suturar la tierra? en 23 y 12
+    { id: 358, movieId: 27, cinemaId: 1, date: "2025-12-10", hour: 10, minute: 0 }, // Piel de toro muerto en 23 y 12
+    { id: 359, movieId: 28, cinemaId: 1, date: "2025-12-10", hour: 10, minute: 0 }, // Croma en 23 y 12
+    { id: 360, movieId: 22, cinemaId: 1, date: "2025-12-10", hour: 12, minute: 30 }, // Nuestra tierra en 23 y 12
+    { id: 361, movieId: 16, cinemaId: 1, date: "2025-12-10", hour: 15, minute: 0 }, // 09/05/1982 en 23 y 12
+    { id: 362, movieId: 17, cinemaId: 1, date: "2025-12-10", hour: 15, minute: 0 }, // Tiempo detenido en 23 y 12
+    { id: 363, movieId: 18, cinemaId: 1, date: "2025-12-10", hour: 15, minute: 0 }, // Atardecer en América en 23 y 12
+    { id: 364, movieId: 19, cinemaId: 1, date: "2025-12-10", hour: 15, minute: 0 }, // Sueña ahora en 23 y 12
+    { id: 365, movieId: 20, cinemaId: 1, date: "2025-12-10", hour: 15, minute: 0 }, // Tierra enferma en 23 y 12
+    { id: 366, movieId: 51, cinemaId: 1, date: "2025-12-10", hour: 17, minute: 30 }, // Halker en 23 y 12
+    { id: 367, movieId: 52, cinemaId: 1, date: "2025-12-10", hour: 17, minute: 30 }, // Revoada - Versión Steampunk en 23 y 12
+    { id: 368, movieId: 172, cinemaId: 1, date: "2025-12-10", hour: 20, minute: 0 }, // Sueño en otro idioma en 23 y 12
+    { id: 369, movieId: 156, cinemaId: 2, date: "2025-12-10", hour: 10, minute: 0 }, // Matapanki en Acapulco
+    { id: 370, movieId: 157, cinemaId: 2, date: "2025-12-10", hour: 12, minute: 30 }, // Primera enseñanza en Acapulco
+    { id: 371, movieId: 158, cinemaId: 2, date: "2025-12-10", hour: 12, minute: 30 }, // Lanawaru en Acapulco
+    { id: 372, movieId: 159, cinemaId: 2, date: "2025-12-10", hour: 12, minute: 30 }, // Alice en Acapulco
+    { id: 373, movieId: 160, cinemaId: 2, date: "2025-12-10", hour: 12, minute: 30 }, // La felicidad en Acapulco
+    { id: 374, movieId: 161, cinemaId: 2, date: "2025-12-10", hour: 12, minute: 30 }, // Dormidos sobre rodillas calientes en Acapulco
+    { id: 375, movieId: 162, cinemaId: 2, date: "2025-12-10", hour: 15, minute: 0 }, // Hijo mayor en Acapulco
+    { id: 376, movieId: 163, cinemaId: 2, date: "2025-12-10", hour: 17, minute: 30 }, // La memoria de las mariposas en Acapulco
+    { id: 377, movieId: 21, cinemaId: 2, date: "2025-12-10", hour: 20, minute: 0 }, // Esta isla en Acapulco
+    { id: 378, movieId: 29, cinemaId: 3, date: "2025-12-10", hour: 10, minute: 0 }, // Hiedra en Chaplin
+    { id: 379, movieId: 15, cinemaId: 3, date: "2025-12-10", hour: 12, minute: 30 }, // Eva en Chaplin
+    { id: 380, movieId: 164, cinemaId: 3, date: "2025-12-10", hour: 15, minute: 0 }, // Punku en Chaplin
+    { id: 381, movieId: 165, cinemaId: 3, date: "2025-12-10", hour: 17, minute: 30 }, // Un poeta en Chaplin
+    { id: 382, movieId: 24, cinemaId: 3, date: "2025-12-10", hour: 20, minute: 0 }, // ¡Caigan las rosas blancas! en Chaplin
+    { id: 383, movieId: 104, cinemaId: 4, date: "2025-12-10", hour: 10, minute: 0 }, // El castillo de la pureza en Glauber Rocha
+    { id: 384, movieId: 149, cinemaId: 4, date: "2025-12-10", hour: 14, minute: 30 }, // Escritor en Glauber Rocha
+    { id: 385, movieId: 150, cinemaId: 5, date: "2025-12-10", hour: 15, minute: 0 }, // Historia de un baño en Infanta
+    { id: 386, movieId: 151, cinemaId: 5, date: "2025-12-10", hour: 15, minute: 0 }, // La miel inmaculada en Infanta
+    { id: 387, movieId: 152, cinemaId: 5, date: "2025-12-10", hour: 15, minute: 0 }, // El Claro en Infanta
+    { id: 388, movieId: 40, cinemaId: 5, date: "2025-12-10", hour: 17, minute: 30 }, // El octubre de Valdivia en Infanta
+    { id: 389, movieId: 121, cinemaId: 5, date: "2025-12-10", hour: 20, minute: 0 }, // Yendo en Infanta
+    { id: 390, movieId: 50, cinemaId: 6, date: "2025-12-10", hour: 15, minute: 0 }, // Todo documento de civilización en La Rampa
+    { id: 391, movieId: 166, cinemaId: 6, date: "2025-12-10", hour: 17, minute: 30 }, // Marta en La Rampa
+    { id: 392, movieId: 62, cinemaId: 6, date: "2025-12-10", hour: 20, minute: 0 }, // Isla Negra en La Rampa
+    { id: 393, movieId: 167, cinemaId: 7, date: "2025-12-10", hour: 15, minute: 0 }, // Notas que cuentan en Riviera
+    { id: 394, movieId: 168, cinemaId: 7, date: "2025-12-10", hour: 15, minute: 0 }, // Rito de paso en Riviera
+    { id: 395, movieId: 169, cinemaId: 7, date: "2025-12-10", hour: 15, minute: 0 }, // Kueka, memoria ancestral en Riviera
+    { id: 396, movieId: 170, cinemaId: 7, date: "2025-12-10", hour: 17, minute: 30 }, // Mano fuerte en Riviera
+    { id: 397, movieId: 171, cinemaId: 7, date: "2025-12-10", hour: 17, minute: 30 }, // El niño probeta en Riviera
+    { id: 398, movieId: 145, cinemaId: 7, date: "2025-12-10", hour: 20, minute: 0 }, // Berezada en Riviera
+    { id: 399, movieId: 173, cinemaId: 8, date: "2025-12-10", hour: 10, minute: 0 }, // Solo con tu pareja en Alfredo Guevara
+    { id: 400, movieId: 44, cinemaId: 8, date: "2025-12-10", hour: 15, minute: 0 }, // Paz del corazón en Alfredo Guevara
+    { id: 401, movieId: 45, cinemaId: 8, date: "2025-12-10", hour: 15, minute: 0 }, // Bodas de diamante en Alfredo Guevara
+    { id: 402, movieId: 46, cinemaId: 8, date: "2025-12-10", hour: 15, minute: 0 }, // La Reina del Arenque en Alfredo Guevara
+    { id: 403, movieId: 47, cinemaId: 8, date: "2025-12-10", hour: 15, minute: 0 }, // Volver a pasar en Alfredo Guevara
+    { id: 404, movieId: 48, cinemaId: 8, date: "2025-12-10", hour: 15, minute: 0 }, // Las flores se paran en silencio, atestiguando en Alfredo Guevara
+    { id: 405, movieId: 57, cinemaId: 9, date: "2025-12-10", hour: 10, minute: 0 }, // (Des)control en Yara
+    { id: 406, movieId: 56, cinemaId: 9, date: "2025-12-10", hour: 12, minute: 30 }, // Nora en Yara
+    { id: 407, movieId: 91, cinemaId: 9, date: "2025-12-10", hour: 15, minute: 0 }, // Cherri en Yara
+    { id: 408, movieId: 174, cinemaId: 9, date: "2025-12-10", hour: 17, minute: 30 }, // The Son and the Sea en Yara
+    { id: 409, movieId: 175, cinemaId: 9, date: "2025-12-10", hour: 20, minute: 0 }, // Sentimental Value en Yara
+    
+    // --- JUEVES 11 DICIEMBRE 2025 ---
+    { id: 410, movieId: 164, cinemaId: 1, date: "2025-12-11", hour: 10, minute: 0 }, // Punku en 23 y 12
+    { id: 411, movieId: 163, cinemaId: 1, date: "2025-12-11", hour: 12, minute: 30 }, // La memoria de las mariposas en 23 y 12
+    { id: 412, movieId: 157, cinemaId: 1, date: "2025-12-11", hour: 15, minute: 0 }, // Primera enseñanza en 23 y 12
+    { id: 413, movieId: 158, cinemaId: 1, date: "2025-12-11", hour: 15, minute: 0 }, // Lanawaru en 23 y 12
+    { id: 414, movieId: 159, cinemaId: 1, date: "2025-12-11", hour: 15, minute: 0 }, // Alice en 23 y 12
+    { id: 415, movieId: 160, cinemaId: 1, date: "2025-12-11", hour: 15, minute: 0 }, // La felicidad en 23 y 12
+    { id: 416, movieId: 161, cinemaId: 1, date: "2025-12-11", hour: 15, minute: 0 }, // Dormidos sobre rodillas calientes en 23 y 12
+    { id: 417, movieId: 176, cinemaId: 1, date: "2025-12-11", hour: 17, minute: 30 }, // ¡Para Vigo me voy! en 23 y 12
+    { id: 418, movieId: 143, cinemaId: 1, date: "2025-12-11", hour: 20, minute: 0 }, // Nudo mixteco en 23 y 12
+    { id: 419, movieId: 177, cinemaId: 2, date: "2025-12-11", hour: 10, minute: 0 }, // Man Number 4 en Acapulco
+    { id: 420, movieId: 178, cinemaId: 2, date: "2025-12-11", hour: 10, minute: 0 }, // Cazadores de uranio en Acapulco
+    { id: 421, movieId: 179, cinemaId: 2, date: "2025-12-11", hour: 10, minute: 0 }, // La selección de Chile en Acapulco
+    { id: 422, movieId: 180, cinemaId: 2, date: "2025-12-11", hour: 10, minute: 0 }, // Exception en Acapulco
+    { id: 423, movieId: 181, cinemaId: 2, date: "2025-12-11", hour: 10, minute: 0 }, // Abo Jabal en Acapulco
+    { id: 424, movieId: 182, cinemaId: 2, date: "2025-12-11", hour: 10, minute: 0 }, // Hind Under Siege en Acapulco
+    { id: 425, movieId: 183, cinemaId: 2, date: "2025-12-11", hour: 10, minute: 0 }, // La figura humana en Acapulco
+    { id: 426, movieId: 184, cinemaId: 2, date: "2025-12-11", hour: 12, minute: 30 }, // A Fidai Film en Acapulco
+    { id: 427, movieId: 75, cinemaId: 2, date: "2025-12-11", hour: 15, minute: 0 }, // Baisanos en Acapulco
+    { id: 428, movieId: 76, cinemaId: 2, date: "2025-12-11", hour: 15, minute: 0 }, // Notas sobre un destierro en Acapulco
+    { id: 429, movieId: 185, cinemaId: 2, date: "2025-12-11", hour: 17, minute: 30 }, // Cuadernos de La Habana. Gilberto Bosques en Cuba en Acapulco
+    { id: 430, movieId: 162, cinemaId: 2, date: "2025-12-11", hour: 20, minute: 0 }, // Hijo mayor en Acapulco
+    { id: 431, movieId: 171, cinemaId: 3, date: "2025-12-11", hour: 10, minute: 0 }, // El niño probeta en Chaplin
+    { id: 432, movieId: 156, cinemaId: 3, date: "2025-12-11", hour: 12, minute: 30 }, // Matapanki en Chaplin
+    { id: 433, movieId: 32, cinemaId: 3, date: "2025-12-11", hour: 15, minute: 0 }, // Leyendo el mundo en Chaplin
+    { id: 434, movieId: 186, cinemaId: 3, date: "2025-12-11", hour: 17, minute: 30 }, // 5 historias de amor y un bolerón desesperado en Chaplin
+    
+    // --- VIERNES 12 DICIEMBRE 2025 ---
+    { id: 435, movieId: 121, cinemaId: 1, date: "2025-12-12", hour: 10, minute: 0 }, // Yendo en 23 y 12
+    { id: 436, movieId: 176, cinemaId: 1, date: "2025-12-12", hour: 12, minute: 30 }, // ¡Para Vigo me voy! en 23 y 12
+    { id: 437, movieId: 61, cinemaId: 1, date: "2025-12-12", hour: 15, minute: 0 }, // Un cabo suelto en 23 y 12
+    { id: 438, movieId: 194, cinemaId: 1, date: "2025-12-12", hour: 17, minute: 30 }, // Más allá del olvido en 23 y 12
+    { id: 439, movieId: 188, cinemaId: 1, date: "2025-12-12", hour: 20, minute: 0 }, // La mejor madre del mundo en 23 y 12
+    { id: 440, movieId: 42, cinemaId: 2, date: "2025-12-12", hour: 10, minute: 0 }, // El novio de mamá en Acapulco
+    { id: 441, movieId: 152, cinemaId: 2, date: "2025-12-12", hour: 12, minute: 30 }, // El Claro en Acapulco
+    { id: 442, movieId: 36, cinemaId: 2, date: "2025-12-12", hour: 15, minute: 0 }, // Dolores en Acapulco
+    { id: 443, movieId: 145, cinemaId: 2, date: "2025-12-12", hour: 17, minute: 30 }, // Berezada en Acapulco
+    { id: 444, movieId: 69, cinemaId: 2, date: "2025-12-12", hour: 20, minute: 0 }, // Homo Argentum en Acapulco
+    { id: 445, movieId: 173, cinemaId: 4, date: "2025-12-12", hour: 10, minute: 0 }, // Solo con tu pareja en Glauber Rocha
+    { id: 446, movieId: 185, cinemaId: 4, date: "2025-12-12", hour: 14, minute: 30 }, // Cuadernos de La Habana. Gilberto Bosques en Cuba en Glauber Rocha
+    { id: 447, movieId: 170, cinemaId: 5, date: "2025-12-12", hour: 15, minute: 0 }, // Mano fuerte en Infanta
+    { id: 448, movieId: 171, cinemaId: 5, date: "2025-12-12", hour: 15, minute: 0 }, // El niño probeta en Infanta
+    { id: 449, movieId: 189, cinemaId: 5, date: "2025-12-12", hour: 17, minute: 30 }, // ¿Por qué creamos? en Infanta
+    { id: 450, movieId: 190, cinemaId: 5, date: "2025-12-12", hour: 17, minute: 30 }, // Y me hice maestro en Infanta
+    { id: 451, movieId: 58, cinemaId: 5, date: "2025-12-12", hour: 20, minute: 0 }, // Mudanza en Infanta
+    { id: 452, movieId: 191, cinemaId: 6, date: "2025-12-12", hour: 15, minute: 0 }, // Los renacidos en La Rampa
+    { id: 453, movieId: 196, cinemaId: 6, date: "2025-12-12", hour: 17, minute: 30 }, // Perros en La Rampa
+    { id: 454, movieId: 64, cinemaId: 6, date: "2025-12-12", hour: 20, minute: 0 }, // Cinco tipos de miedo en La Rampa
+    { id: 455, movieId: 206, cinemaId: 7, date: "2025-12-12", hour: 15, minute: 0 }, // Las tres muertes de un sol en Riviera
+    { id: 456, movieId: 207, cinemaId: 7, date: "2025-12-12", hour: 15, minute: 0 }, // Tu casa es cultura. Vos sos el creador en Riviera
+    { id: 457, movieId: 148, cinemaId: 7, date: "2025-12-12", hour: 17, minute: 30 }, // Pensamiento lateral en Riviera
+    { id: 458, movieId: 72, cinemaId: 7, date: "2025-12-12", hour: 20, minute: 0 }, // Oca en Riviera
+    { id: 459, movieId: 143, cinemaId: 8, date: "2025-12-12", hour: 10, minute: 0 }, // Nudo mixteco en Alfredo Guevara
+    { id: 460, movieId: 177, cinemaId: 8, date: "2025-12-12", hour: 15, minute: 0 }, // Man Number 4 en Alfredo Guevara
+    { id: 461, movieId: 178, cinemaId: 8, date: "2025-12-12", hour: 15, minute: 0 }, // Cazadores de uranio en Alfredo Guevara
+    { id: 462, movieId: 179, cinemaId: 8, date: "2025-12-12", hour: 15, minute: 0 }, // La selección de Chile en Alfredo Guevara
+    { id: 463, movieId: 180, cinemaId: 8, date: "2025-12-12", hour: 15, minute: 0 }, // Exception en Alfredo Guevara
+    { id: 464, movieId: 181, cinemaId: 8, date: "2025-12-12", hour: 15, minute: 0 }, // Abo Jabal en Alfredo Guevara
+    { id: 465, movieId: 182, cinemaId: 8, date: "2025-12-12", hour: 15, minute: 0 }, // Hind Under Siege en Alfredo Guevara
+    { id: 466, movieId: 183, cinemaId: 8, date: "2025-12-12", hour: 15, minute: 0 }, // La figura humana en Alfredo Guevara
+    { id: 467, movieId: 208, cinemaId: 9, date: "2025-12-12", hour: 10, minute: 0 }, // Miradas del cine español en Yara
+    { id: 468, movieId: 186, cinemaId: 9, date: "2025-12-12", hour: 12, minute: 30 }, // 5 historias de amor y un bolerón desesperado en Yara
+    { id: 469, movieId: 71, cinemaId: 9, date: "2025-12-12", hour: 15, minute: 0 }, // Sorda en Yara
+    { id: 470, movieId: 209, cinemaId: 9, date: "2025-12-12", hour: 17, minute: 30 }, // Hen en Yara
+    { id: 471, movieId: 210, cinemaId: 9, date: "2025-12-12", hour: 20, minute: 0 }, // Case 137 en Yara
+    
+    // --- SÁBADO 13 DICIEMBRE 2025 ---
+    { id: 472, movieId: 73, cinemaId: 1, date: "2025-12-13", hour: 17, minute: 30 }, // Memoria de "Los olvidados" en 23 y 12
+    { id: 473, movieId: 72, cinemaId: 5, date: "2025-12-13", hour: 15, minute: 0 }, // Oca en Infanta
+    { id: 474, movieId: 206, cinemaId: 5, date: "2025-12-13", hour: 17, minute: 30 }, // Las tres muertes de un sol en Infanta
+    { id: 475, movieId: 207, cinemaId: 5, date: "2025-12-13", hour: 17, minute: 30 }, // Tu casa es cultura. Vos sos el creador en Infanta
+    { id: 476, movieId: 191, cinemaId: 5, date: "2025-12-13", hour: 20, minute: 0 }, // Los renacidos en Infanta
+    { id: 477, movieId: 63, cinemaId: 7, date: "2025-12-13", hour: 15, minute: 0 }, // Alexis Díaz Pimienta- Retrato de un poeta en Riviera
+    { id: 478, movieId: 36, cinemaId: 7, date: "2025-12-13", hour: 17, minute: 30 }, // Dolores en Riviera
+    { id: 479, movieId: 211, cinemaId: 9, date: "2025-12-13", hour: 17, minute: 30 }, // Romería en Yara
+    { id: 480, movieId: 212, cinemaId: 9, date: "2025-12-13", hour: 20, minute: 0 }, // Heads or Tails? en Yara
+    
+    // --- DOMINGO 14 DICIEMBRE 2025 ---
+    { id: 481, movieId: 195, cinemaId: 1, date: "2025-12-14", hour: 17, minute: 30 }, // Los olvidados en 23 y 12
+    { id: 482, movieId: 196, cinemaId: 5, date: "2025-12-14", hour: 15, minute: 0 }, // Perros en Infanta
+    { id: 483, movieId: 66, cinemaId: 5, date: "2025-12-14", hour: 17, minute: 30 }, // Identidad en Infanta
+    { id: 484, movieId: 43, cinemaId: 5, date: "2025-12-14", hour: 20, minute: 0 }, // Cuatro estrellas en Infanta
+    { id: 485, movieId: 93, cinemaId: 7, date: "2025-12-14", hour: 15, minute: 0 }, // Mi tierra extranjera en Riviera
+    { id: 486, movieId: 62, cinemaId: 7, date: "2025-12-14", hour: 17, minute: 30 }, // Isla Negra en Riviera
+    { id: 487, movieId: 213, cinemaId: 9, date: "2025-12-14", hour: 17, minute: 30 }, // At Work en Yara
+    { id: 488, movieId: 214, cinemaId: 9, date: "2025-12-14", hour: 20, minute: 0 } // Kontinental '25 en Yara
+
 ];
 
 const state = {
