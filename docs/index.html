@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Horarios de Cines</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-film"></i> Sistema de Gestión de Horarios de Cines</h1>
+            <p class="subtitle">Visualiza y gestiona las proyecciones de películas por cine, día y hora</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Panel de búsqueda y selección -->
+            <div class="search-panel">
+                <div class="search-header">
+                    <h2><i class="fas fa-search"></i> Buscar Películas</h2>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Buscar por título, género o cine...">
+                        <button id="searchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="cineFilter">Filtrar por cine:</label>
+                        <select id="cineFilter">
+                            <option value="all">Todos los cines</option>
+                            <!-- Opciones se llenarán dinámicamente -->
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="dayFilter">Filtrar por día:</label>
+                        <select id="dayFilter">
+                            <option value="all">Todos los días</option>
+                            <!-- Opciones se llenarán dinámicamente -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="movies-list" id="moviesList">
+                    <!-- Lista de películas se llenará dinámicamente -->
+                </div>
+                
+                <div class="selected-movies">
+                    <h3><i class="fas fa-bookmark"></i> Películas Marcadas (<span id="selectedCount">0</span>)</h3>
+                    <div id="selectedMoviesList"></div>
+                </div>
+            </div>
+
+            <!-- Vista semanal de horarios -->
+            <div class="schedule-panel">
+                <div class="schedule-header">
+                    <h2><i class="fas fa-calendar-alt"></i> Vista Semanal</h2>
+                    <div class="week-navigation">
+                        <button id="prevWeek"><i class="fas fa-chevron-left"></i> Semana Anterior</button>
+                        <span id="currentWeekRange">Semana Actual</span>
+                        <button id="nextWeek">Próxima Semana <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="week-view">
+                    <!-- Encabezados de días se llenarán dinámicamente -->
+                </div>
+                
+                <div class="schedule-grid">
+                    <!-- Horarios se llenarán dinámicamente -->
+                </div>
+                
+                <div class="schedule-legend">
+                    <h3><i class="fas fa-key"></i> Leyenda</h3>
+                    <div class="legend-items">
+                        <div class="legend-item"><span class="color-box" style="background-color: #4CAF50;"></span> Película marcada</div>
+                        <div class="legend-item"><span class="color-box" style="background-color: #FF9800;"></span> Conflicto de horario</div>
+                        <div class="legend-item"><span class="color-box" style="background-color: #3F51B5;"></span> Película disponible</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de información -->
+        <div class="info-panel">
+            <h3><i class="fas fa-info-circle"></i> Información</h3>
+            <div id="conflictsInfo">
+                <p>No hay conflictos de horario detectados.</p>
+            </div>
+            <div class="instructions">
+                <h4><i class="fas fa-lightbulb"></i> Instrucciones:</h4>
+                <ul>
+                    <li>Busca películas en la barra de búsqueda</li>
+                    <li>Marca las películas que quieras destacar en el calendario</li>
+                    <li>Los conflictos de horario (misma hora, diferente cine) se mostrarán en naranja</li>
+                    <li>Haz clic en una proyección para ver más detalles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para detalles de película -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalMovieTitle">Título de Película</h2>
+            <div class="modal-body">
+                <div class="movie-details">
+                    <p><strong>Cine:</strong> <span id="modalCinema"></span></p>
+                    <p><strong>Horario:</strong> <span id="modalTime"></span></p>
+                    <p><strong>Duración:</strong> <span id="modalDuration"></span> minutos</p>
+                    <p><strong>Género:</strong> <span id="modalGenre"></span></p>
+                    <p><strong>Clasificación:</strong> <span id="modalRating"></span></p>
+                </div>
+                <div class="movie-description">
+                    <h3>Sinopsis</h3>
+                    <p id="modalDescription">Descripción de la película</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
