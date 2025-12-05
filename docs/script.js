@@ -2329,6 +2329,7 @@ let screeningsDatabase = [
     { id: 469, movieId: 71, cinemaId: 9, date: "2025-12-12", hour: 15, minute: 0 }, // Sorda en Yara
     { id: 470, movieId: 209, cinemaId: 9, date: "2025-12-12", hour: 17, minute: 30 }, // Hen en Yara
     { id: 471, movieId: 210, cinemaId: 9, date: "2025-12-12", hour: 20, minute: 0 }, // Case 137 en Yara
+    { id: 489, movieId: 66, cinemaId: 7, date: "2025-12-12", hour: 15, minute: 0 }, // Identidad en Infanta
     
     // --- SÁBADO 13 DICIEMBRE 2025 ---
     { id: 472, movieId: 73, cinemaId: 1, date: "2025-12-13", hour: 17, minute: 30 }, // Memoria de "Los olvidados" en 23 y 12
@@ -2387,6 +2388,72 @@ function initApp() {
     detectConflicts();
 }
 
+function deselectAllMovies() {
+    // Vaciar el Set de películas seleccionadas
+    state.selectedMovies.clear();
+    
+    // Al desmarcar todas, también mostramos todas las proyecciones (opcional, pero recomendado)
+    state.hiddenScreenings.clear();
+    
+    // Actualizar toda la interfaz
+    renderMoviesList();
+    renderWeekView();
+    renderSelectedMovies();
+    detectConflicts();
+}
+
+function selectAllVisibleMovies() {
+    // Obtener solo las películas que coinciden con los filtros actuales
+    const visibleMovieIds = new Set();
+
+    screeningsDatabase.forEach(screening => {
+        const movie = getMovieById(screening.movieId);
+        const cinema = getCinemaById(screening.cinemaId);
+
+        // Aplicar los mismos filtros que en renderMoviesList
+        if (state.searchTerm) {
+            const searchLower = state.searchTerm.toLowerCase();
+            if (!movie.title.toLowerCase().includes(searchLower) &&
+                !movie.genre.toLowerCase().includes(searchLower) &&
+                !cinema.name.toLowerCase().includes(searchLower)) {
+                return;
+            }
+        }
+
+        if (state.selectedCinema !== "all" && parseInt(state.selectedCinema) !== screening.cinemaId) {
+            return;
+        }
+
+        if (state.selectedDay !== "all") {
+            const selectedDayIndex = parseInt(state.selectedDay);
+            const screeningDate = new Date(screening.date);
+            const weekStart = new Date(state.currentWeekStart);
+            const weekEnd = new Date(weekStart);
+            weekEnd.setDate(weekEnd.getDate() + 6);
+
+            if (screeningDate < weekStart || screeningDate > weekEnd) {
+                return;
+            }
+
+            const dayDiff = Math.floor((screeningDate - weekStart) / (1000 * 60 * 60 * 24));
+            if (dayDiff !== selectedDayIndex) {
+                return;
+            }
+        }
+
+        visibleMovieIds.add(movie.id);
+    });
+
+    // Seleccionar todas las películas visibles
+    visibleMovieIds.forEach(id => state.selectedMovies.add(id));
+
+    // Actualizar la interfaz
+    renderMoviesList();
+    renderWeekView();
+    renderSelectedMovies();
+    detectConflicts();
+};
+
 // Configurar eventos
 function setupEventListeners() {
     // Búsqueda
@@ -2432,6 +2499,9 @@ function setupEventListeners() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeModal();
     });
+
+    document.getElementById('selectAllBtn').addEventListener('click', selectAllVisibleMovies);
+    document.getElementById('unSelectAllBtn').addEventListener('click', deselectAllMovies);
 }
 
 // NUEVA FUNCIÓN: Alternar visibilidad de una proyección
